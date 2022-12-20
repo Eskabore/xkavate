@@ -20,7 +20,7 @@ app.use(express.json());
 
 app.use(helmet());
 
-app.use(helmet.crossOriginOpenerPolicy({ policy: "cross-origin" }));
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 
 app.use(morgan('common'));
 
@@ -34,3 +34,16 @@ app.use('/client', clientRoutes);
 app.use('/general', generalRoutes);
 app.use('/management', managementRoutes);
 app.use('/sales', salesRoutes);
+
+/* MONGOOSE SETUP */
+const PORT = process.env.PORT || 5000;
+
+mongoose.set('strictQuery', true);
+mongoose.connect(process.env.MONGO_URL, {
+    useNewUrlParser: true, // Allow us to keep urlencoded set to false
+    useUnifiedTopology: true
+})
+.then(() => {
+    app.listen(PORT, () => console.log(`SERVER is listening on ${PORT}`));
+})
+.catch((err) => console.log(`${err} did not connect`));
