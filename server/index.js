@@ -49,5 +49,8 @@ mongoose.connect(process.env.MONGO_URL, {
 })
 .then(() => {
     app.listen(PORT, () => console.log(`SERVER is listening on ${PORT}`));
+
+    /* Mock User DATA */
+    User. insertMany(dataUser);
 })
 .catch((err) => console.log(`${err} did not connect`));
