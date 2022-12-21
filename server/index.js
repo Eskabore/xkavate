@@ -65,6 +65,6 @@ mongoose.connect(process.env.MONGO_URL, {
    // ProductStat.insertMany(dataProductStat); //INSERT Mocks PRODUCT
 
    /* Mock Transactions DATA */
-   Transaction.insertMany(dataTransaction); //INSERT Mocks
+   // Transaction.insertMany(dataTransaction); //INSERT Mocks
 })
 .catch((err) => console.log(`${err} did not connect`));
