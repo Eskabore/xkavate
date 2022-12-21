@@ -33,7 +33,7 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
     {/* LEFT SIDE */}
 
     <FlexBetween>
-      <IconButton onClick={() => console.log('open/close sidebar')}>
+      <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
         <MenuIcon  />
       </IconButton>
 
