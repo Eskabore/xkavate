@@ -1,5 +1,5 @@
-import Product from "../models/product";
-import ProductStat from "../models/productStat";
+import Product from "../models/product.js";
+import ProductStat from "../models/productStat.js";
 
 export const getProducts = (req, res) => {
     Product.find((error, products) => {
@@ -22,7 +22,3 @@ export const getProducts = (req, res) => {
       res.status(200).json(productsWithStats);
     });
   };
-
-
-export default Router;
-
