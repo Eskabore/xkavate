@@ -8,6 +8,7 @@ import globalReducer from 'state';
 import { Provider } from 'react-redux';
 
 import { api } from "state/api";
+import { setupListeners } from "@reduxjs/toolkit/query";
 
 const store = configureStore({
   reducer:  {
@@ -20,6 +21,8 @@ const store = configureStore({
   // and other useful features of `rtk-query`.
   middleware: (getDefault) => getDefault().concat(api.middleware),
 });
+
+setupListeners(store.dispatch);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
