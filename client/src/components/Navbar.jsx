@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LightModeOutlined, DarkModeOutlined, Menu as MenuIcon, Search, SettingsOutlined } from '@mui/icons-material';
 
 import FlexBetween from 'components/FlexBetween';
@@ -6,12 +6,18 @@ import { useDispatch } from 'react-redux';
 import { setMode } from 'state';
 import profileImage from 'assets/profile.jpg';
 
-import { useTheme , IconButton, InputBase, AppBar, Toolbar, Box, Button } from '@mui/material';
+import { useTheme , IconButton, InputBase, AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
 
-function Navbar() {
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+
     const dispatch = useDispatch();
 
     const theme = useTheme();
+
+    const [anchorEl, setAnchorEl] = useState(null);
+    const isOpen = Boolean(anchorEl);
+    const handleClick = (event) => setAnchorEl(event.currentTarget);
+    const handleClose = () => setAnchorEl(null);
 
   return (
   <AppBar
@@ -64,7 +70,7 @@ function Navbar() {
 
       <FlexBetween>
             <Button
-
+            onClick={ handleClick }
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
