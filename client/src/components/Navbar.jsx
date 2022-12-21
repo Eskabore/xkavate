@@ -1,12 +1,12 @@
 import React from 'react';
-import { LightModeOutlined, DarkModeOutlined, Menu as MenuIcon, Search, SettingsOutlined, ArrowDropDownOutlined } from '@mui/icons-material';
+import { LightModeOutlined, DarkModeOutlined, Menu as MenuIcon, Search, SettingsOutlined } from '@mui/icons-material';
 
 import FlexBetween from 'components/FlexBetween';
 import { useDispatch } from 'react-redux';
 import { setMode } from 'state';
 import profileImage from 'assets/profile.jpg';
 
-import { useTheme , IconButton, InputBase, AppBar, Toolbar } from '@mui/material';
+import { useTheme , IconButton, InputBase, AppBar, Toolbar, Box, Button } from '@mui/material';
 
 function Navbar() {
     const dispatch = useDispatch();
@@ -61,6 +61,30 @@ function Navbar() {
         <SettingsOutlined
         sx={ { fontSize: "25px" } } />
       </IconButton>
+
+      <FlexBetween>
+            <Button
+ 
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                textTransform: "none",
+                gap: "1rem",
+              }}
+            >
+            <Box
+                component="img"
+                alt="profile"
+                src={profileImage}
+                height="32px"
+                width="32px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
+
+            </Button>
+            </FlexBetween>
     </FlexBetween>
     </Toolbar>
   </AppBar>
