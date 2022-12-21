@@ -12,6 +12,10 @@ import generalRoutes from './routes/general.js';
 import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
+/* DATA IMPORT */
+import User from "./models/user";
+import { dataUser } from "./data/index";
+
 /* CONFIGURATION */
 dotenv.config();
 const app = express();
