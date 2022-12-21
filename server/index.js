@@ -13,8 +13,8 @@ import managementRoutes from './routes/management.js';
 import salesRoutes from './routes/sales.js';
 
 /* DATA IMPORT */
-import User from "./models/user";
-import { dataUser } from "./data/index";
+import User from "./models/user.js";
+import { dataUser } from "./data/index.js";
 
 /* CONFIGURATION */
 dotenv.config();

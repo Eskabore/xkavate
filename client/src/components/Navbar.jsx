@@ -11,7 +11,7 @@ import { useTheme , IconButton, InputBase, AppBar, Toolbar, Box, Button } from '
 function Navbar() {
     const dispatch = useDispatch();
 
-    const theme = useTheme;
+    const theme = useTheme();
 
   return (
   <AppBar
@@ -64,7 +64,7 @@ function Navbar() {
 
       <FlexBetween>
             <Button
- 
+
               sx={{
                 display: "flex",
                 justifyContent: "space-between",
