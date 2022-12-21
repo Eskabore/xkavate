@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setMode } from 'state';
 import profileImage from 'assets/profile.jpg';
 
-import { useTheme , IconButton, InputBase, AppBar, Toolbar, Box, Button, Typography } from '@mui/material';
+import { useTheme , IconButton, InputBase, AppBar, Toolbar, Box, Button, Typography, Menu, MenuItem } from '@mui/material';
 
 const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
 
@@ -108,11 +108,20 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
               />
 
             </Button>
-            </FlexBetween>
-    </FlexBetween>
-    </Toolbar>
-  </AppBar>
-  )
-}
 
-export default Navbar
+            <Menu
+              anchorEl={anchorEl}
+              open={isOpen}
+              onClose={handleClose}
+              anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+            >
+              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+            </Menu>
+          </FlexBetween>
+        </FlexBetween>
+      </Toolbar>
+    </AppBar>
+  );
+};
+
+export default Navbar;
