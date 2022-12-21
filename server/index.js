@@ -51,6 +51,6 @@ mongoose.connect(process.env.MONGO_URL, {
     app.listen(PORT, () => console.log(`SERVER is listening on ${PORT}`));
 
     /* Mock User DATA */
-   // User. insertMany(dataUser);
+   // User.insertMany(dataUser); //INSERT Mocks USERS in Mongoose-Atlas
 })
 .catch((err) => console.log(`${err} did not connect`));
