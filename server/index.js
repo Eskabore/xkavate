@@ -14,7 +14,11 @@ import salesRoutes from './routes/sales.js';
 
 /* DATA IMPORT */
 import User from "./models/user.js";
-import { dataUser } from "./data/index.js";
+import Product from './models/product.js';
+import ProductStat from './models/productStat.js';
+
+import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
+
 
 /* CONFIGURATION */
 dotenv.config();
@@ -50,7 +54,13 @@ mongoose.connect(process.env.MONGO_URL, {
 .then(() => {
     app.listen(PORT, () => console.log(`SERVER is listening on ${PORT}`));
 
+
+    // DO THE FOLLOWING ONLY ONCE TO AVOID DUPLICATES
     /* Mock User DATA */
    // User.insertMany(dataUser); //INSERT Mocks USERS in Mongoose-Atlas
+
+   /* Mock Products & ProductStats DATA */
+   Product.insertMany(dataProduct); //INSERT Mocks PRODUCT
+   ProductStat.insertMany(dataProductStat); //INSERT Mocks PRODUCT
 })
 .catch((err) => console.log(`${err} did not connect`));
