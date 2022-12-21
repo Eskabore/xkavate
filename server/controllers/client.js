@@ -1,24 +1,34 @@
 import Product from "../models/product.js";
 import ProductStat from "../models/productStat.js";
+import User from "../models/user.js";
 
-export const getProducts = (req, res) => {
-    Product.find((error, products) => {
-      if (error) {
-        res.status(404).json({ message: error.message });
-        return;
-      }
-      const productsWithStats = products.map((product) => {
-        ProductStat.find({ productId: product._id }, (error, stat) => {
-          if (error) {
-            res.status(404).json({ message: error.message });
-            return;
-          }
-          return {
-            ...product._doc,
-            stat,
-          };
+export const getProducts = async (req, res) => {
+  try {
+    const products = await Product.find();
+
+    const productsWithStats = await Promise.all(
+      products.map(async (product) => {
+        const stat = await ProductStat.find({
+          productId: product._id,
         });
-      });
-      res.status(200).json(productsWithStats);
-    });
-  };
+        return {
+          ...product._doc,
+          stat,
+        };
+      })
+    );
+
+    res.status(200).json(productsWithStats);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
+
+export const getCustomers = async (req, res) => {
+  try {
+    const customers = await User.find({ role: "user" }).select("-password");
+    res.status(200).json(customers);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
