@@ -16,8 +16,9 @@ import salesRoutes from './routes/sales.js';
 import User from "./models/user.js";
 import Product from './models/product.js';
 import ProductStat from './models/productStat.js';
+import Transaction from './models/transaction.js';
 
-import { dataUser, dataProduct, dataProductStat } from "./data/index.js";
+import { dataUser, dataProduct, dataProductStat, dataTransaction } from "./data/index.js";
 
 
 /* CONFIGURATION */
@@ -62,5 +63,8 @@ mongoose.connect(process.env.MONGO_URL, {
    /* Mock Products & ProductStats DATA */
    // Product.insertMany(dataProduct); //INSERT Mocks PRODUCT
    // ProductStat.insertMany(dataProductStat); //INSERT Mocks PRODUCT
+
+   /* Mock Transactions DATA */
+   Transaction.insertMany(dataTransaction); //INSERT Mocks
 })
 .catch((err) => console.log(`${err} did not connect`));
