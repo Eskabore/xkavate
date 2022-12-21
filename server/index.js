@@ -60,7 +60,7 @@ mongoose.connect(process.env.MONGO_URL, {
    // User.insertMany(dataUser); //INSERT Mocks USERS in Mongoose-Atlas
 
    /* Mock Products & ProductStats DATA */
-   Product.insertMany(dataProduct); //INSERT Mocks PRODUCT
-   ProductStat.insertMany(dataProductStat); //INSERT Mocks PRODUCT
+   // Product.insertMany(dataProduct); //INSERT Mocks PRODUCT
+   // ProductStat.insertMany(dataProductStat); //INSERT Mocks PRODUCT
 })
 .catch((err) => console.log(`${err} did not connect`));
