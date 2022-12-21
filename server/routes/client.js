@@ -5,6 +5,6 @@ const router = new Router();
 
 router.get('/products', getProducts);
 router.get('/customers', getCustomers);
-
+router.get('transactions', getTransactions);
 export default router;
 
