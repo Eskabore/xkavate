@@ -17,8 +17,9 @@ import User from "./models/user.js";
 import Product from './models/product.js';
 import ProductStat from './models/productStat.js';
 import Transaction from './models/transaction.js';
+import OverallStat from './models/overallStat.js';
 
-import { dataUser, dataProduct, dataProductStat, dataTransaction } from "./data/index.js";
+import { dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat } from "./data/index.js";
 
 
 /* CONFIGURATION */
@@ -66,5 +67,8 @@ mongoose.connect(process.env.MONGO_URL, {
 
    /* Mock Transactions DATA */
    // Transaction.insertMany(dataTransaction); //INSERT Mocks
+
+   /* Mock Stats DATA */
+   // OverallStat.insertMany(dataOverallStat); //INSERT Mocks
 })
 .catch((err) => console.log(`${err} did not connect`));
