@@ -18,7 +18,7 @@ import Product from './models/product.js';
 import ProductStat from './models/productStat.js';
 import Transaction from './models/transaction.js';
 import OverallStat from './models/overallStat.js';
-import AffiliateStat from "./models/AffiliateStat.js";
+import AffiliateStat from "./models/affiliateStat.js";
 
 import { dataUser, dataProduct, dataProductStat, dataTransaction, dataOverallStat, dataAffiliateStat } from "./data/index.js";
 
@@ -60,7 +60,7 @@ mongoose.connect(process.env.MONGO_URL, {
 
     // DO THE FOLLOWING ONLY ONCE TO AVOID DUPLICATES
     /* Mock User DATA */
-   // User.insertMany(dataUser); //INSERT Mocks USERS in Mongoose-Atlas
+    // User.insertMany(dataUser); //INSERT Mocks USERS in Mongoose-Atlas
 
    /* Mock Products & ProductStats DATA */
    // Product.insertMany(dataProduct); //INSERT Mocks PRODUCT
