@@ -45,7 +45,7 @@ app.use('/management', managementRoutes);
 app.use('/sales', salesRoutes);
 
 /* MONGOOSE SETUP */
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 9000;
 
 mongoose.set('strictQuery', true);
 mongoose.connect(process.env.MONGO_URL, {
