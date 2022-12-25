@@ -73,6 +73,6 @@ mongoose.connect(process.env.MONGO_URL, {
    // OverallStat.insertMany(dataOverallStat); //INSERT Mocks
 
    /* Mock AffiliateStats DATA */
-   AffiliateStat.insertMany(dataAffiliateStat); //INSERT Mocks
+   // AffiliateStat.insertMany(dataAffiliateStat); //INSERT Mocks
 })
 .catch((err) => console.log(`${err} did not connect`));
