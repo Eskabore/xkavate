@@ -1,5 +1,11 @@
-import { Router } from "express";
+import OverallStat from "../models/overallStat.js";
 
-const router = new Router();
+export const getSales = async (req, res) => {
+  try {
+    const overallStats = await OverallStat.find();
 
-export default Router;
+    res.status(200).json(overallStats[0]);
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};

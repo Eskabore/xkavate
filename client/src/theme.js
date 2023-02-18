@@ -109,7 +109,7 @@ export const tokensDark = {
       },
       typography: {
         fontFamily: ["Inter", "sans-serif"].join(","),
-        fontSize: 12,
+        fontSize: 18,
         h1: {
           fontFamily: ["Inter", "sans-serif"].join(","),
           fontSize: 40,
